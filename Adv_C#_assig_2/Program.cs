@@ -184,7 +184,7 @@ namespace Adv_C__assig_2
             int k = 3;
 
             Stack<int> F_Stack = new Stack<int>();
-            Stack<int> S_Stack = new Stack<int>();
+            Queue<int> q2 = new Queue<int>();
             for (int i = 0; i < k; i++)
                 F_Stack.Push(q.Dequeue());
 
@@ -192,21 +192,20 @@ namespace Adv_C__assig_2
             //{
             //    Console.Write(i);//321
             //}
-            while (q.Count > 0)
-                S_Stack.Push(q.Dequeue());
+            while (F_Stack.Count > 0)
+                q2.Enqueue(F_Stack.Pop());
 
-            //foreach (int i in S_Stack)
+            //foreach (int i in q2)
             //{
-            //    Console.Write(i);//5 4
+            //    Console.Write(i);//321
             //}
 
-            while (S_Stack.Count > 0)
-                F_Stack.Push(S_Stack.Pop());
-            foreach (int i in F_Stack)
+            while (q.Count > 0)
+                q2.Enqueue(q.Dequeue());
+            foreach (int i in q2)
             {
                 Console.Write(i);
             }
-            //مش عارف بيطلع معايا 45321
             #endregion
 
         }
